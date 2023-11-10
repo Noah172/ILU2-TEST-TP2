@@ -29,13 +29,15 @@ class ControlAcheterProduitTest {
 
 	@Test
 	void testIsHabitant() {
+		ControlVerifierIdentite controlVerifierIdentite= new ControlVerifierIdentite(village);
+
 		ControlAcheterProduit controlAcheterProduit = new ControlAcheterProduit(controlVerifierIdentite, controlTrouverEtalVendeur,village);
 		ControlEmmenager controlEmmenager = new ControlEmmenager(village);
 		controlEmmenager.ajouterGaulois("Bonemine", 10);
-//		assertTrue(controlAcheterProduit.isHabitant("Bonemine"));
-//		assertFalse(controlAcheterProduit.isHabitant("Existe pas"));
+		assertTrue(controlAcheterProduit.isHabitant("Bonemine"));
+		assertFalse(controlAcheterProduit.isHabitant("Existe pas"));
 		controlEmmenager.ajouterDuide("Panoramix", 10, 1, 5);
-//		assertTrue(controlAcheterProduit.isHabitant("Panoramix"));
+		assertTrue(controlAcheterProduit.isHabitant("Panoramix"));
 	}
 
 	@Test
